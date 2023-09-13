@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<!--    {{ message }}-->
+<!--    <p>Товаров в корзине: {{count}}</p>-->
+<!--    <div>-->
+<!--        <div v-for="(good, index) in goods">-->
+<!--            <p>{{good.name}}</p>-->
+<!--            <button @click="byItem(good)">{{good.text}}</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <button @click="isOlder">Мне 14</button>-->
+<!--    <button @click="isYounger">Мне нет 14</button>-->
+<!--    <button @click="setStatus(true)">Мне 14</button>-->
+<!--    <button @click="setStatus(false)">Мне нет 14</button>-->
+<!--    <p v-if="isAllowed">Можете купить товар</p>-->
+<!--    <p v-else>Доступ закрыт</p>-->
+<!--    <button @click="setVisible">Показать</button>-->
+<!--    <p v-if="isShowed">-->
+<!--        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto-->
+<!--        culpa tenetur eveniet tempora officia modi laboriosam omnis, quos, fugit-->
+<!--        numquam possimus laborum, deleniti vel asperiores. Quo esse sapiente eum-->
+<!--        reprehenderit?-->
+<!--    </p>-->
+    <button @click="getRandom">Генерировать случайное число</button>
+
+<!--    <p v-if="number && number < 5">Число меньше 5</p>-->
+<!--    <p v-else-if="number>=5 && number<10 ">Число от 5 и до 10</p>-->
+<!--    <p v-else-if="number>=10">Число больше 10</p>-->
+
+    <p v-if="numberString">{{numberString}}</p>
+<!--    <p v-if="numberString()">{{numberString()}}</p>-->
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            // isAllowed: false,
+            // message: 'Привет, Vue!',
+            // count: 0,
+            // goods: [
+            //     { id: 1, name: 'Good 1', text: 'Купить', inCart: false },
+            //     { id: 2, name: 'Good 2', text: 'Купить', inCart: false },
+            //     { id: 3, name: 'Good 3', text: 'Купить', inCart: false },
+            //     { id: 4, name: 'Good 4', text: 'Купить', inCart: false },
+            //     { id: 5, name: 'Good 5', text: 'Купить', inCart: false }
+            // ],
+            // isShowed: false,
+            number: 0,
+        },
+        methods: {
+            // isOlder() {
+            //     this.isAllowed = true;
+            // },
+            // isYounger() {
+            //     this.isAllowed = false;
+            // },
+            // setStatus(status) {
+            //     this.isAllowed = status;
+            // }
+            // byItem(good) {
+            //     if (good.inCart) return;
+            //
+            //     good.inCart = true;
+            //     good.text = 'Товар в корзине';
+            //     this.count++;
+            // }
+            // setVisible() {
+            //     this.isShowed = !this.isShowed;
+            // },
+            getRandom() {
+                const max = 13;
+                const min = 1;
+                this.number = Math.floor(Math.random() * (max - min + 1)) + min;
+            },
+        },
+        computed: {
+            numberString() {
+                const { number } = this;
+                // const number = this.number;
+                if (number && number < 5) return 'Число меньше 5';
+                if (number >= 5 && number < 10) return 'Число от 5 и до 10';
+                if (number >= 10) return 'Число больше 10';
+                return null;
+            }
+        }
+    })
+</script>
+</body>
+</html>
