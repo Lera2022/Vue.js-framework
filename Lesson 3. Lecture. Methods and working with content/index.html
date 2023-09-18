@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 1: inline-выражение -->
+    <button v-on:click="c = a + b"></button>
+    <!-- 2: вызов метода обработчика с параметрами -->
+    <button v-on:click="doThat('hello', $event)"></button>
+    <!-- 3: вызов метода обработчика без параметров -->
+    <button v-on:click="doThis"></button>
+
+    <button v-bind:id="id" v-bind:title="title">Кнопка</button>
+
+    <div id="app">
+        <button :disabled="isDisabled">Кнопка</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                isDisabled: true
+            }
+        })
+    </script>
+
+    <div id="app">
+        <div class="display">
+            <input v-model="operand1">
+            <input v-model="operand2"> = {{ result }}
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                operand1: 0,
+                operand2: 0,
+                result: 0,
+            }
+        })
+    </script>
+
+    <div class="display">
+        <input v-model.number="operand1">
+        <input v-model.number="operand2"> = {{ result }}
+    </div>
+
+    <div id="app">
+        <div v-for="item in myCollection">
+            {{ item }}
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                myCollection: [1, 2, 3, 4, 5, 6, 7]
+            }
+        })
+    </script>
+
+    <div v-for="(item, index) in myCollection">
+        {{ index }} - {{ item }}
+    </div>
+
+    <div class="display">
+        <input v-model.number="operand1">
+        <input v-model.number="operand2"> = {{ result }}
+    </div>
+    <div class="keyboard">
+        <button v-on:click="result = operand1 + operand2">+</button>
+        <button v-on:click="result = operand1 - operand2">-</button>
+        <button @click="result = operand1 / operand2">/</button>
+        <button @click="result = operand1 * operand2">*</button>
+    </div>
+
+    <button @click="add">add</button> new Vue({ el: '#app', data: { operand1: 0, operand2: 0, result: 0, }, methods: { add() { console.log('Add operation!') } }, })
+
+    <div class="keyboard">
+        <button @click="add">+</button>
+        <button @click="substract">-</button>
+        <button @click="divide">/</button>
+        <button @click="multiply">*</button>
+    </div>
+
+
+    <div id="example">
+        {{ message.split('').reverse().join('') }}
+    </div>
+    <div id="example">
+        <p>Изначальное сообщение: «{{ message }}»</p>
+        <p>Сообщение задом наперёд: «{{ reversedMessage }}»</p>
+    </div>
+    <script>
+        new Vue({
+            el: '#example',
+            data: {
+                message: 'Привет'
+            },
+            computed: {
+                // геттер вычисляемого значения
+                reversedMessage: function() {
+                    // `this` указывает на экземпляр vm
+                    return this.message.split('').reverse().join('')
+                }
+            }
+        })
+
+        console.log(vm.reversedMessage) // => 'тевирП'
+        vm.message = 'Пока'
+        console.log(vm.reversedMessage) // => 'акоП'
+    </script>
+    <div id="example">
+        <p>Сообщение задом наперёд: «{{ reverseMessage() }}»</p>
+    </div>
+    <script>
+        new Vue({
+            el: '#example',
+            data: {
+                message: 'Привет'
+            },
+            methods: {
+                reverseMessage: function() {
+                    return this.message.split('').reverse().join('')
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
