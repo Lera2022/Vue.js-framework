@@ -292,6 +292,14 @@ ul {
     text-transform: capitalize;
 }
 
+.pagination {
+    margin-top: 51px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 104px;
+}
+
 .footer {
     display: flex;
     gap: 101px;

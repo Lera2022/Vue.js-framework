@@ -67,7 +67,6 @@
                     <div v-for=" article in articles ">
                         <div class="article ">
                             <img :src="article.url" :alt="article.alt" class="img__article">
-                            <p class=" desc__article ">{{article.desc}}</p>
                             <h3 class="subheading subheading__article ">{{article.subheading}}
                             </h3>
                             <div class="article__wrapper ">
@@ -80,6 +79,14 @@
                     </div>
                 </div>
             </div>
+            <nav>
+                <ul class="pagination">
+                    <li class="pagination__item"><img src="img/1.svg" alt="1"></li>
+                    <li class="pagination__item"><img src="img/2.svg" alt="2"></li>
+                    <li class="pagination__item"><img src="img/3.svg" alt="3"></li>
+                    <li><img src="img/parrow.svg" alt="arrow forward"></li>
+                </ul>
+            </nav>
         </section>
     </main>
     <footer class="footer center ">
