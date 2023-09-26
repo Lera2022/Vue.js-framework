@@ -1,0 +1,5 @@
+node -v
+npm install -g @vue/cli
+vue create my-project
+cd vue-project
+npm run serve
